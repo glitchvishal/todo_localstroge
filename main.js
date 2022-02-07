@@ -1,6 +1,7 @@
 const inputBox = document.querySelector(".inputArea input");
 const addBtn = document.querySelector(".inputArea button");
 const todoList = document.querySelector(".todo-list");
+const clearAllBtn = document.querySelector("#clearAll");
 
 inputBox.onkeyup = () => {
     let userData = inputBox.value;
@@ -56,5 +57,10 @@ function deleteTodo(index) {
 
     //update 
     localStorage.setItem("New List", JSON.stringify(listArr));
+    showTodoList();
+}
+
+clearAllBtn.onclick = () => {
+    localStorage.removeItem("New List");
     showTodoList();
 }
